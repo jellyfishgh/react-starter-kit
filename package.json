@@ -9,8 +9,8 @@
   "scripts": {
     "test": "mocha",
     "start": "node server.js",
-    "build": "babel src -d src/dist",
-    "minify": "uglifyjs ./src/dist/index.js -c -o ./src/dist/bundle.min.js"
+    "build": "babel src -d dist",
+    "minify": "uglifyjs ./dist/index.js -c -o ./dist/index.min.js"
   },
   "repository": {
     "type": "git",

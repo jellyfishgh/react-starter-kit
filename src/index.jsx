@@ -1,17 +1,33 @@
-(function(React, render){
-    const urls = [
-        {
-            href: '/examples/basic/index.html',
-            name: 'basic'
-        }
-    ];
+(function(React, render, fetch) {
     const App = React.createClass({
-        render() {
-            var indexes = this.props.urls.map((url) => {
-                return (<li><a href={url.href} target='_blank'>{url.name}</a></li>);
+        getInitialState() {
+            return {urls: []}
+        },
+        componentDidMount() {
+            fetch('/urls.json', '', 'GET', 2000, (json) => {
+                this.setState({urls: json});
+            }, (err) => {
+                this.setState({urls: [err.toString()]});
             });
-            return (<ul>{indexes}</ul>);
+        },
+        render() {
+            const errStyle = {
+                color: 'red'
+            };
+            var indexes = this.state.urls.map((url) => {
+                return url.name ? (
+                    <li>
+                        <a href={url.href} target='_blank'>{url.name}</a>
+                    </li>
+                ) : <p style={errStyle}>{url}</p>;
+            });
+            return (
+                <ul>
+                    {indexes}
+                </ul>
+            );
         }
     });
-    render(<App urls={urls}/>, document.querySelector('#container'));
-})(window.React, window.ReactDom.render);
+    render(
+        <App/>, document.querySelector('#container'));
+})(window.React, window.ReactDOM.render, window.fetch);
