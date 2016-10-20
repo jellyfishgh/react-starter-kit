@@ -6,5 +6,37 @@
     {
         "href": "/examples/basic-click-counter/index.html",
         "name": "basic-click-counter"
+    },
+    {
+        "href": "/examples/basic-commonjs/index.html",
+        "name": "basic-commonjs"
+    },
+    {
+        "href": "/examples/basic-jsx-external/index.html",
+        "name": "basic-jsx-external"
+    },
+    {
+        "href": "/examples/fiber/index.html",
+        "name": "fiber"
+    },
+    {
+        "href": "/examples/jquery-bootstrap/index.html",
+        "name": "jquery-bootstrap"
+    },
+    {
+        "href": "/examples/jquery-mobile/index.html",
+        "name": "jquery-mobile"
+    },
+    {
+        "href": "/examples/quadratic/index.html",
+        "name": "quadratic"
+    },
+    {
+        "href": "/examples/transitions/index.html",
+        "name": "transitions"
+    },
+    {
+        "href": "/examples/webcomponents/index.html",
+        "name": "webcomponents"
     }
 ]
