@@ -65,7 +65,16 @@ var JQueryMobileButton = React.createFactory(React.createClass({
         return { className: 'ui-btn ui-shadow ui-corner-all' };
     },
     render: function render() {
-        return React.DOM.p(null, React.DOM.a(this.props, this.props.children));
+        return React.createElement(
+            'p',
+            null,
+            React.createElement(
+                'a',
+                this.props,
+                this.props.children
+            )
+        );
+        // return React.DOM.p(null, React.DOM.a(this.props, this.props.children));
     }
 }));
 
@@ -73,10 +82,15 @@ var JQueryMobileButton = React.createFactory(React.createClass({
 var JQueryMobileContent = React.createFactory(React.createClass({
     displayName: 'JQueryMobileContent',
     render: function render() {
-        return React.DOM.div({
-            role: 'main',
-            className: 'ui-content'
-        }, this.props.children);
+        return React.createElement(
+            'div',
+            { role: 'main', className: 'ui-content' },
+            this.props.children
+        );
+        // return React.DOM.div({
+        //     role: 'main',
+        //     className: 'ui-content'
+        // }, this.props.children);
     }
 }));
 
@@ -119,14 +133,29 @@ var JQueryMobilePage = React.createFactory(React.createClass({
         return { 'data-role': 'page', 'data-theme': 'a', 'headerTheme': 'a' };
     },
     render: function render() {
-        var props = {};
-        for (var key in this.props) {
-            props[key] = this.props[key];
-        }
-        return React.DOM.div(props, JQueryMobileHeader({
-            title: 'Page ' + this.props.id,
-            headerTheme: this.props.headerTheme
-        }), JQueryMobileContent(null, this.props.children), JQueryMobileFooter(null));
+        return React.createElement(
+            'div',
+            this.props,
+            React.createElement(JQueryMobileHeader, { title: 'Page ' + this.props.id, headerTheme: this.props.headerTheme }),
+            React.createElement(
+                JQueryMobileContent,
+                null,
+                this.props.children
+            ),
+            React.createElement(JQueryMobileFooter, null)
+        );
+        // const props = {};
+        // for(let key in this.props){
+        //     props[key] = this.props[key];
+        // }
+        // return React.DOM.div(props,
+        //     JQueryMobileHeader({
+        //         title: 'Page ' + this.props.id,
+        //         headerTheme: this.props.headerTheme
+        //     }),
+        //     JQueryMobileContent(null, this.props.children),
+        //     JQueryMobileFooter(null)
+        // );
     }
 }));
 
