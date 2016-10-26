@@ -35,9 +35,8 @@
 var App = React.createClass({
     displayName: 'App',
     render: function() {
-        return React.DOM.div({
-                className: 'app'
-            },
+        return React.DOM.div(
+            { className: 'app' },
             JQueryMobilePage({
                 id: 'one'
             }, PageOneContent(null)),
@@ -87,10 +86,8 @@ var JQueryMobileFooter = React.createClass({
     displayName: 'JQueryMobileFooter',
     render: function() {
         return React.DOM.div({
-                'data-role': 'footer'
-            },
-            React.DOM.h4(null, 'Page footer')
-        );
+            'data-role': 'footer'
+        }, React.DOM.h4(null, 'Page footer'));
     }
 });
 JQueryMobileFooter = React.createFactory(JQueryMobileFooter);
